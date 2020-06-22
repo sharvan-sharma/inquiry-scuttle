@@ -20,7 +20,7 @@ const createInquiry = (req,res,next) => {
             masterLogger.error(`form ${req.body.form_id} error while creating a inquiry on application request `)
         }else{
             res.json({status:200,msg:'inquiry created'})
-            let promise = sendEmail(inquiryCreationTemplate({inquirer_name:inquiry.name}))
+            let promise = sendEmail(inquiryCreationTemplate({inquirer_name:inquiry.name,inquirer_email:inquiry.email}))
             promise.then(()=>{
                 mailLogger.info(`form with _id as ${req.body.form_id} sucessfully sent inquiry creation email`)
             })

@@ -8,7 +8,7 @@ passport.serializeUser((user,done)=>{
 })
 
 passport.deserializeUser((session_data,done)=>{
-        User.findById(session_data._id,(err,user)=>{
+        Users.findById(session_data._id,(err,user)=>{
             if(err){done(err,null)}
             else{
                 done(null,user)
@@ -38,6 +38,7 @@ passport.use(new GoogleStrategy({
                 email:profile._json.email,
                 photo:profile._json.picture,
                 verified:true,
+                status:'A'
                 },(err,newUser)=>{
                     done(err,newUser)
                 })

@@ -7,10 +7,14 @@ const deleteProject = require('./deleteProject')
 const updateForm  = require('./updateForm')
 const updateProject = require('./updateProject')
 const readInquiry = require('./readInquiry')
+const deleteInquiry = require('./deleteInquiry')
+const replyInquiry = require('./replyInquiry')
 
 
 module.exports = {
     checkApiAuth,
+    deleteInquiry,
+    replyInquiry,
     updateForm,
     updateProject,
     createForm,

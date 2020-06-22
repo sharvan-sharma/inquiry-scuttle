@@ -1,8 +1,8 @@
-const validations = require('../../../src/utils/validations')
+const {isEmail} = require('../../../src/utils/validations')
 const {Users} = require('../../../src/config/models')
 
 module.exports = (req,res,next)=>{
-    if(!req.body.email || !validations.isEmail(req.body.email)){
+    if(!req.body.email || !isEmail(req.body.email)){
         res.json({status:423,type:'email'})
     }else{
         Users.findOne({email:req.body.email},{email:1},(err,user)=>{

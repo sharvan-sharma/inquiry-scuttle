@@ -15,16 +15,18 @@ module.exports = (req,res,next)=>{
                         masterLogger.error(`user error while extracting token sent in verification email`)
                     }
                 }else{
-                    Users.findOneAndUpdate({_id:payload.id},
+                    Users.findOneAndUpdate({email:payload.email},
                                             {'$set':{verified:true,status:'A'}},
                                             {new:true,strict:false},
                                             (err,user)=>{
                                             if(err){
                                                 res.json({status:500})
-                                                masterLogger.error(`user ${user.email} error ocuur while changing verified flag `)
+                                                masterLogger.error(`user ${user.email} error occur while changing verified flag `)
                                             }
                                             else if(user){
-                                                res.json({status:200,msg:'verified'})
+                                                req.body.email = payload.email
+                                                req.body.password = payload.password
+                                                next()
                                             }else{
                                                 res.json({status:422,type:'UserDoesNotExist'})
                                             }

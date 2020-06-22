@@ -13,7 +13,10 @@ router.route('/checklogin')
       .get(common.checkLogin)
 
 router.route('/register/user')
-      .post(common.registerUser)
+      .post(common.validateUserRegistration,common.registerUser)
+
+router.route('/verify')
+      .post(common.verify,common.passportAuthenticate)
 
 router.route('/changeprofilephoto')
       .post(common.changeProfilePhotoAwsS3)
@@ -45,7 +48,7 @@ router.route('/loginfail')
 router.route('/forgotpassword')
       .post(common.passwordResetEmail)
 
-router.route('/resetpassword')
+router.route('/verify/resetpassword')
       .post(common.verifyPasswordResetEmail)
 
 router.route('/changepassword')

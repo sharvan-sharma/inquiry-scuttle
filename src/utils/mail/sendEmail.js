@@ -1,6 +1,6 @@
 const nodemailer = require("nodemailer");
 
-const senEmail = async (template)=>{
+const sendEmail = async (template)=>{
   let transporter = nodemailer.createTransport({
     service:'Gmail',// true for 465, false for other ports
     auth: {
@@ -16,4 +16,4 @@ const senEmail = async (template)=>{
 }
 
 
-module.exports = senEmail
+module.exports = sendEmail

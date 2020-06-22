@@ -12,7 +12,7 @@ const bodyParser = require('body-parser')
 const dbconnection = require('./src/config/dbConfig')
 const passport = require('./src/config/passportConfig')
 const Router = require('./routes/index');
-const {checkApiAuth} = require('./routes/middlewares/api_middlewares')
+const {checkApiAuth} = require('./routes/middlewares/user_middlewares')
 
 const app = express();
 

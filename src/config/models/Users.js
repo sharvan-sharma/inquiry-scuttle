@@ -5,11 +5,12 @@ const passportLocalMongoose = require('passport-local-mongoose')
 const userSchema = mongoose.Schema({
     name:{type:Object,required:true},
     email:{type:String,required:true,unique:true},
-    photo:{type:String,default:null,required:true},
+    photo:{type:String,default:null},
     attempts:{type:Number},
     last:{type:String},
-    login_status:{type:String,required:true,default:'IA'},
-    status:{type:String,required:true,default:'A'},
+    verified:{type:Boolean,default:false},
+    login_status:{type:String,default:'IA'},
+    status:{type:String,default:'IA'},
     createdAt:{type:Date,default:Date.now},
 })
 

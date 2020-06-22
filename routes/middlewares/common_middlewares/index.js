@@ -11,9 +11,13 @@ const editProfile = require('./editProfile')
 const changeProfilePhotoAwsS3 = require('./changeProfilePhotoAwsS3')
 const oauthSuccess = require('./oauthSuccess')
 const registerUser = require('./registerUser')
+const verify = require('./verify')
+const validateUserRegistration = require('./validateUserRegistration')
 
 module.exports = {
     changeProfilePhotoAwsS3,
+    verify,
+    validateUserRegistration,
     registerUser,
     oauthSuccess,
     logout,

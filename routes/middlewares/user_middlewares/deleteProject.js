@@ -1,12 +1,12 @@
 const {Projects,Inquiry,Forms} = require('../../../src/config/models')
 const {masterLogger} = require('../../../src/logger')
 
-async function deleteProject (req,res,next){
+function deleteProject(req,res,next){
 
     if(!req.body.project_id || req.body.project_id.length !== 24 ){
         res.json({status:423,type:'project_id'})
     }else{
-        Projects.findOneAndDelete({_id:req.body.project_id},(err,project)=>{
+        Projects.findOneAndDelete({_id:req.body.project_id},async (err,project)=>{
             if(err){
                 req.json({status:500,type:'server_error'})
                 masterLogger.error(`user ${req.user.email} successfully deleted the project with _id ${project._id}`)

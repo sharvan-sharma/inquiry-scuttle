@@ -9,7 +9,9 @@ module.exports = (req,res,next)=>{
             {'$set':{login_status:'A'}},
             {new:true,strict:false},
             (err,user)=>{
-            if(err){res.json({status:500,type:'server_error'})
+            if(err){
+                res.json({status:500,type:'server_error'})
+                masterLogger.info(`user  login error while setting login_status to 'A'`)
             }else if(user){
                 res.json({  status:200,
                             logged_in:true,

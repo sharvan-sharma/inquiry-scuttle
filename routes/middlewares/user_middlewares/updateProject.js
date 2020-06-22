@@ -9,8 +9,8 @@ module.exports = (req,res,next) => {
     }else if(!req.body.project_id || req.body.project_id.length !== 24){
         res.json({status:423,type:'project_id'})
     }else{
-        Projects.create(
-            {_id:req.body.project_id},
+        Projects.findOneAndUpdate(
+            {_id:req.body.project_id,user_id:req.user._id},
             {$set:{name:req.body.project_name}},
             {new:true,strict:false},
             (err,project)=>{
