@@ -1,7 +1,9 @@
 const commonRouter = require('./common.routes')
-const apiRouter = require('./api.routes')
+const userApiRouter = require('./user.routes')
+const clientApiRouter = require('./client.routes')
 
 module.exports = {
   commonRouter,
-  apiRouter
+  userApiRouter,
+  clientApiRouter
 }

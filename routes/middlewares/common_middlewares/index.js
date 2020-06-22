@@ -10,9 +10,11 @@ const logout = require('./logout')
 const editProfile = require('./editProfile')
 const changeProfilePhotoAwsS3 = require('./changeProfilePhotoAwsS3')
 const oauthSuccess = require('./oauthSuccess')
+const registerUser = require('./registerUser')
 
 module.exports = {
     changeProfilePhotoAwsS3,
+    registerUser,
     oauthSuccess,
     logout,
     editProfile,

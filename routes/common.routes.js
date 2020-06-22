@@ -12,6 +12,9 @@ router.route('/checkemail')
 router.route('/checklogin')
       .get(common.checkLogin)
 
+router.route('/register/user')
+      .post(common.registerUser)
+
 router.route('/changeprofilephoto')
       .post(common.changeProfilePhotoAwsS3)
 
