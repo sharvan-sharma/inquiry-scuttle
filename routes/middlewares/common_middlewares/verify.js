@@ -3,7 +3,7 @@ const jwt = require('jsonwebtoken')
 const {masterLogger}  = require('../../../src/logger')
 
 module.exports = (req,res,next)=>{
-        if(!req.body.token || req.body.token.length < 10){
+        if(!req.body.token || req.body.token.length < 160){
             res.json({status:423,type:'invalid_token'})
         }else{
             jwt.verify(req.body.token,process.env.USER_VERIFY_SECRET,(err,payload)=>{

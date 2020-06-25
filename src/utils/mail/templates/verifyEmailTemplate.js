@@ -8,7 +8,7 @@ const template = {
     subject: "Verification Email from Inquiry Scuttle Team", // Subject line
     html: `<h3>Hello ${beautifyName(reciverName)}</h3>
     <p>The verification link is given below<p>
-    <a href=${process.env.FRONT_DOMAIN+'/verifyemail?token='+token}>${process.env.FRONT_DOMAIN+'/verifyemail?token='+token}<a>
+    <a href=${process.env.FRONT_DOMAIN+'/verify?token='+token}>${process.env.FRONT_DOMAIN+'/verify?token='+token}<a>
     <br/><small>This verification link is going to expire after 1 hour of Generation</small>
     <p>Regards</p>
     <p>Inquiry Scuttle Team</p>` // html body

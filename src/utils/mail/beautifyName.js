@@ -3,7 +3,7 @@ function CapitalizeFirstLetter(str){
 }
 
 function beautifyName(name){
-    const middlename = CapitalizeFirstLetter(name.middlename)+' ' || ''  
+    const middlename = (name.middlename)?CapitalizeFirstLetter(name.middlename)+' ':''  
     return CapitalizeFirstLetter(name.firstname)+' '+middlename+CapitalizeFirstLetter(name.lastname)       
 }
 

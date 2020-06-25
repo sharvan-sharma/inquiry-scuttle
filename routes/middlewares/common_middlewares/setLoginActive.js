@@ -11,16 +11,14 @@ module.exports = (req,res,next)=>{
             (err,user)=>{
             if(err){
                 res.json({status:500,type:'server_error'})
-                masterLogger.info(`user  login error while setting login_status to 'A'`)
+                masterLogger.error(`user  login error while setting login_status to 'A'`)
             }else if(user){
                 res.json({  status:200,
                             logged_in:true,
                             name:req.user.name,
                             email:req.user.email,
                             createdAt:req.user.createdAt,
-                            phone:req.user.phone,
-                            photo:req.user.photo,
-                            account_type:req.user.account_type})
+                            photo:req.user.photo})
                 masterLogger.info(`user ${req.user.email} login successfully login_status set to 'A'`)
             }else{res.json({status:401,type:'unauthenticated'})}
         })

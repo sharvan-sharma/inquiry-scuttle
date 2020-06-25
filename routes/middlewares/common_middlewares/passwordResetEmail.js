@@ -33,7 +33,7 @@ function passwordResetEmail(req, res, next) {
                                 }
                             })
                         }else{res.json({status: 455,type:'inactive'})}
-                }else{res.json({status: 423,type:'unverified'})}
+                }else{res.json({status: 422,type:'unverified'})}
             } else {res.json({type:'user_doesnot_exist',status:401})}
         })
     }

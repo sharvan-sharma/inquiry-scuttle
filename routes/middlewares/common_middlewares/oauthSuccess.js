@@ -10,7 +10,7 @@ module.exports = (req,res,next)=>{
                 (err,user)=>{
                 if(err){res.json({status:500,type:'server_error'})
                 }else {
-                     res.status(302).redirect(process.env.FRONT_DOMAIN)
+                     res.status(302).redirect(process.env.FRONT_DOMAIN.toString())
                      masterLogger.info(`user ${req.user.email} login through google oauth`)
                 }
             })

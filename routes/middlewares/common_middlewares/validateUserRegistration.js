@@ -13,7 +13,7 @@ function validateUserRegistration(req,res,next){
                                 res.json({status:500,type:'db email check'})
                                 masterLogger.error(`user ${req.body.email} error while checking existance of user with given credentials`)
                         }
-                        else if(user){res.json({status:423,type:'User Already Exists'})}
+                        else if(user){res.json({status:422,type:'User Already Exists'})}
                         else{next()}
                 })
         }

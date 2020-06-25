@@ -2,7 +2,7 @@ const jwt = require('jsonwebtoken')
 const {masterLogger} = require('../../../src/logger')
 
 function verifyPwdResetEmail(req,res,next){
-    if(!req.body.token || req.body.token.length < 50){
+    if(!req.body.token || req.body.token.length < 160){
         res.json({status:423})
     }else{
         jwt.verify(req.body.token,process.env.RESET_PWD_SECRET,(err,payload)=>{

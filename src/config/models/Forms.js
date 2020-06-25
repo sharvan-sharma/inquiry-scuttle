@@ -5,7 +5,7 @@ const formSchema = mongoose.Schema({
     project_id:{type:String,required:true},
     createdAt:{type:Date,default:Date.now},
     form_client_id:{type:String,required:true},
-    form_secret:{type:String,required:true},
+    form_secret:{type:String,default:null},
     form_type:{type:String,required:true}
 })
 
