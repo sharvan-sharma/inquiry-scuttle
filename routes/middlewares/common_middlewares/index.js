@@ -5,7 +5,6 @@ const passwordResetEmail = require('./passwordResetEmail')
 const resetPassword = require('./resetPassword')
 const verifyPasswordResetEmail = require('./verifyPasswordResetEmail')
 const validateLogin = require('./validateLogin')
-const passportAuthenticate = require('./passportAuthenticate')
 const logout = require('./logout')
 const editProfile = require('./editProfile')
 const changeProfilePhotoAwsS3 = require('./changeProfilePhotoAwsS3')
@@ -22,7 +21,6 @@ module.exports = {
     oauthSuccess,
     logout,
     editProfile,
-    passportAuthenticate,
     validateLogin,
     resetPassword,
     verifyPasswordResetEmail,

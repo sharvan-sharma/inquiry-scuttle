@@ -4,16 +4,11 @@ const GoogleStrategy = require('passport-google-oauth20').Strategy;
 
 
 passport.serializeUser((user,done)=>{
-    done(null,{_id:user._id})
+    done(null,user._id)
 })
 
-passport.deserializeUser((session_data,done)=>{
-        Users.findById(session_data._id,(err,user)=>{
-            if(err){done(err,null)}
-            else{
-                done(null,user)
-            }
-        })
+passport.deserializeUser((id,done)=>{
+    Users.findById(id,(err,user)=>done(err,user))
 })
 
 passport.use(Users.createStrategy())

@@ -16,7 +16,8 @@ router.route('/register/user')
       .post(common.validateUserRegistration,common.registerUser)
 
 router.route('/verify')
-      .post(common.verify,common.passportAuthenticate)
+      .post(common.verify,
+            passport.authenticate('local',{successRedirect:'/loginsuccess',failureRedirect:'/loginfail'}))
 
 router.route('/changeprofilephoto')
       .post(common.changeProfilePhotoAwsS3)
@@ -31,7 +32,8 @@ router.route('/auth/google/callback')
       .get(passport.authenticate('google', { failureRedirect: '/login/oauth/fail', successRedirect:'/login/oauth/success' }))
 
 router.route('/login')
-      .post(common.validateLogin,common.passportAuthenticate)
+      .post(common.validateLogin,
+            passport.authenticate('local',{successRedirect:'/loginsuccess',failureRedirect:'/loginfail'}))
 
 router.route('/login/oauth/success')
       .get(common.oauthSuccess)
@@ -52,7 +54,8 @@ router.route('/verify/resetpassword')
       .post(common.verifyPasswordResetEmail)
 
 router.route('/changepassword')
-      .post(common.resetPassword,common.passportAuthenticate)
+      .post(common.resetPassword,
+            passport.authenticate('local',{successRedirect:'/loginsuccess',failureRedirect:'/loginfail'}))
 
 router.route('/logout')
       .get(common.logout)
