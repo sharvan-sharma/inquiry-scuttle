@@ -8,7 +8,8 @@ const inquirySchema = mongoose.Schema({
     message:{type:String,default:null},
     phone:{type:String,default:null},
     createdAt:{type:Date,default:Date.now},
-    replied:{type:Boolean,default:false}
+    replied:{type:Boolean,default:false},
+    read:{type:Boolean,default:false}
 })
 
 const Inquiry = mongoose.model('inquires',inquirySchema)

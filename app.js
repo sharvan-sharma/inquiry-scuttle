@@ -19,7 +19,7 @@ const app = express();
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
-app.use(cors({origin:'http://localhost:3000',credentials:true}));
+app.use(cors({origin:['http://localhost:3001','http://localhost:3000'],credentials:true}));
 
 app.use(session({
   secret:process.env.SESSION_SECRET,

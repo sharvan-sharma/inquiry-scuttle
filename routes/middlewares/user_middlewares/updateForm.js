@@ -46,23 +46,28 @@ module.exports ={
                 }
             })
         }
-    },resetSecret:(req,res,next) => {
+    },resetSecret:async (req,res,next) => {
         if(!req.body.form_id || req.body.form_id.length !== 24){
             res.json({status:423,type:'form_id'})
         }else{
-            Forms.findOneAndUpdate(
-                {_id:req.body.form_id},
-                {$set:{form_secret:generateFormSecret()}},
-                {new:true,strict:false},
-                (err,form)=>{
-                if(err){
-                    res.json({status:500,type:'server_error'})
-                    masterLogger.error(`user ${req.user.email} error while reseting form secret`)
-                }else{
-                    res.json({status:200,form})
-                    masterLogger.info(`user ${req.user.email} successfully update the form secret `)
-                }
-            })
+            let iform = await Forms.findById(req.body.form_id)
+            if(iform.form_type !== 'ssa'){
+                res.json({status:423,type:'form_type'})
+            }else{
+                Forms.findOneAndUpdate(
+                    {_id:req.body.form_id},
+                    {$set:{form_secret:generateFormSecret()}},
+                    {new:true,strict:false},
+                    (err,form)=>{
+                    if(err){
+                        res.json({status:500,type:'server_error'})
+                        masterLogger.error(`user ${req.user.email} error while reseting form secret`)
+                    }else{
+                        res.json({status:200,form})
+                        masterLogger.info(`user ${req.user.email} successfully update the form secret `)
+                    }
+                })
+            }
         }
     }
 }

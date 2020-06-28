@@ -19,6 +19,9 @@ router.route('/form/create')
 router.route('/form/delete')
     .post(user.deleteForm)
 
+router.route('/form/read')
+    .post(user.readForm)
+
 router.route('/form/update/name')
     .post(user.updateForm.name)
 
@@ -32,16 +35,19 @@ router.route('/readall/forms')
     .post(user.readAll.forms)
 
 router.route('/readall/projects')
-    .post(user.readAll.projects)
+    .get(user.readAll.projects)
 
-router.route('/readall/inquires')
-    .post(user.readAll.inquires)
+router.route('/read/inquires')
+    .post(user.readInquires)
 
 router.route('/read/inquiry')
     .post(user.readInquiry)
 
 router.route('/delete/inquiry')
     .post(user.deleteInquiry)
+
+router.route('/delete/inquiries')
+    .post(user.deleteInquiries)
 
 router.route('/reply/inquiry')
     .post(user.replyInquiry)

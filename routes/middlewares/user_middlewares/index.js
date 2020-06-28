@@ -9,13 +9,19 @@ const updateProject = require('./updateProject')
 const readInquiry = require('./readInquiry')
 const deleteInquiry = require('./deleteInquiry')
 const replyInquiry = require('./replyInquiry')
+const readForm = require('./readForm')
+const readInquires = require('./readInquires')
+const deleteInquiries = require('./deleteInquiries')
 
 
 module.exports = {
+    deleteInquiries,
+    readInquires,
     checkApiAuth,
     deleteInquiry,
     replyInquiry,
     updateForm,
+    readForm,
     updateProject,
     createForm,
     createProject,
