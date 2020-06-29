@@ -4,6 +4,15 @@ const user = require('./middlewares/user_middlewares')
 
 router.get('/', (req,res) => res.json({status:200,msg:'welcome to user api routes'}))
 
+router.route('/search')
+    .post(user.search)
+
+router.route('/filter')
+    .post(user.filter)
+
+router.route('/loadfilters')
+    .get(user.loadFilters)
+
 router.route('/project/create')
     .post(user.createProject)
 

@@ -12,9 +12,15 @@ const replyInquiry = require('./replyInquiry')
 const readForm = require('./readForm')
 const readInquires = require('./readInquires')
 const deleteInquiries = require('./deleteInquiries')
+const search = require('./search')
+const filter = require('./filter')
+const loadFilters = require('./loadFilters')
 
 
 module.exports = {
+    loadFilters,
+    search,
+    filter,
     deleteInquiries,
     readInquires,
     checkApiAuth,

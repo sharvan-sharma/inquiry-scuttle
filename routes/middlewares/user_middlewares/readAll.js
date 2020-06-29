@@ -20,7 +20,9 @@ module.exports = {
         }
     },
     projects:(req,res,next)=>{
-        Projects.find({user_id:req.user._id},{user_id:0},(err,projectsArray)=>{
+        Projects.find({user_id:req.user._id},{user_id:0})
+        .sort({createdAt:-1})
+        .exec((err,projectsArray)=>{
             if(err){
                 res.json({status:500,type:'server_error'})
                 masterLogger.error(`user ${req.user.email} error while reading all projects`)
