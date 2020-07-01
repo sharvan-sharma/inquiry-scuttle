@@ -11,6 +11,7 @@ const bodyParser = require('body-parser')
 
 const dbconnection = require('./src/config/dbConfig')
 const passport = require('./src/config/passportConfig')
+const sitesArray = require('./src/utils/sites')
 const Router = require('./routes/index');
 const {checkApiAuth} = require('./routes/middlewares/user_middlewares')
 
@@ -19,7 +20,7 @@ const app = express();
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
-app.use(cors({origin:['http://localhost:3001','http://localhost:3000'],credentials:true}));
+app.use(cors({origin:sitesArray,credentials:true}));
 
 app.use(session({
   secret:process.env.SESSION_SECRET,
